@@ -44,7 +44,7 @@ usage: $0 [OPTIONS]
     --vim                   Include Vimrc with its plugins
     --zsh                   Include Zshrc with its plugins
     --color                 Include colorscheme for terminals
-    --all                   Include Zshrc and Vimrc with their plugins
+    --all                   Include all without asking
 EOF
 printf "$RESET"
 }
