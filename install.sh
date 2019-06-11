@@ -278,7 +278,9 @@ setup_xr() {
         fi
         ln -sf "$source_dir/Xresources" "$HOME/.Xresources-base16"
         line='#include ".Xresources-base16"'
-        if ! grep -Fxq $line $HOME/.Xresources; then
+        if grep -Fxq $line $HOME/.Xresources; then
+            log "Already have included Base16 Xresources file, skipping"
+        else
             echo "$line" >> "$HOME/.Xresources"
         fi
         xrdb -merge "$HOME/Xresources-base16"
