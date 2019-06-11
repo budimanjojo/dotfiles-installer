@@ -175,11 +175,6 @@ setup_zsh() {
         error "Zsh is not installed. Please install zsh first."
         exit 1
     fi
-    if ! command_exists ag; then
-        error "Ag is not installed. Please install ag first"
-        exit 1
-    fi
-    # to be done
     old_zshrc="$HOME/.zshrc"
     if [ -f "$old_zshrc" ]; then
         backup_file $old_zshrc
@@ -209,6 +204,18 @@ setup_zsh() {
             error "Git clone of zsh-autosuggestions repo failed, check your connection or try again later."
             exit 1
         }
+    fi
+    log "Installing FZF"
+    if ! command_exists ag; then
+        error "Ag is not installed. Please install ag first"
+        exit 1
+    fi
+    if [ ! -d "$HOME/.fzf"] && [ ! -f "$HOME/.fzf.zsh" ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf" || {
+        error "Git clone of fzf repo failed, check your connection or try again later."
+        exit 1
+        }
+        "$HOME/.fzf/install -all"
     fi
     log "Linking new .zshrc file"
     ln -sf "$source_dir/zshrc" "$old_zshrc"
@@ -278,12 +285,12 @@ setup_xr() {
         fi
         ln -sf "$source_dir/Xresources" "$HOME/.Xresources-base16"
         line='#include ".Xresources-base16"'
-        if grep -Fxq $line $HOME/.Xresources; then
+        if grep -Fxq "$line" "$HOME/.Xresources"; then
             log "Already have included Base16 Xresources file, skipping"
         else
             echo "$line" >> "$HOME/.Xresources"
         fi
-        xrdb -merge "$HOME/Xresources-base16"
+        xrdb -merge "$HOME/.Xresources-base16"
         log "Base16 Google Dark colorscheme is now loaded for URXVT or XTERM."
     else
         error "You don't have .Xresources file in $HOME. Skipping Xresources colorscheme setup."
