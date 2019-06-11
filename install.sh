@@ -276,9 +276,11 @@ setup_xr() {
             error "Xrdb is not installed. Please install xrdb first."
             exit 1
         fi
-        ln -sf "$source_dir/Xresources" "HOME/.Xresources-base16."
+        ln -sf "$source_dir/Xresources" "$HOME/.Xresources-base16"
         line='#include ".Xresources-base16"'
-        log "$line" >> "$HOME/.Xresources"
+        if ! grep -Fxq $line $HOME/.Xresources; then
+            echo "$line" >> "$HOME/.Xresources"
+        fi
         xrdb -merge "$HOME/Xresources-base16"
         log "Base16 Google Dark colorscheme is now loaded for URXVT or XTERM."
     else
