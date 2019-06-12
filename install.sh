@@ -264,7 +264,7 @@ setup_vim() {
     if [ -d "$yarn_dir" ]; then
         backup_file $yarn_dir
     fi
-    curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+    # curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
     log "Linking new .vimrc file"
     if command_exists nvim; then
         log "Linking new .nvimrc file"
@@ -274,7 +274,7 @@ setup_vim() {
     log "Installing Plugins"
     vim +PlugInstall +qall
     log "Installing COC vim"
-    vim -c ":CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
+    vim -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
 }
 
 setup_xr() {
