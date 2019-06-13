@@ -108,6 +108,7 @@ let NERDTreeShowHidden = 1                    " Show hidden files by default
 let g:user_emmet_install_global = 0           " Disable Emmet by default
 
 " COC
+set updatetime=300                            " Make linting faster
 " Extensions for COC to be installed
 let g:coc_global_extensions = [
   \ 'coc-json',
