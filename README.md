@@ -85,13 +85,13 @@ Coc nvim will have these extensions inside:
 For Gnome Terminal setup, we use [Base16-gnome-terminal](https://github.com/chriskempson/base16-gnome-terminal) to set it up.
 ## Updating
 **Zsh**  
-Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions and Powerlevel10k, simply do a git pull to each folder in $ZSH_CUSTOM/plugins and $ZSH_CUSTOM/themes.
+Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions and Powerlevel10k, simply do a git pull to each folder in `$ZSH_CUSTOM/plugins` and `$ZSH_CUSTOM/themes`.
 
 **Vim**  
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.
 
 ## Customization
-To customize your Zshrc, put your custom zsh file inside $ZSH_CUSTOM folder. For example, your custom alias in ~/.oh-my-zsh/custom/alias.zsh.
+To customize your Zshrc, put your custom zsh file inside `$ZSH_CUSTOM` folder. For example, your custom alias in `~/.oh-my-zsh/custom/alias.zsh`.
 For Vimrc, currently it is not possible to customize without forking this repo yet. But it is in our planning list to provide a better way to customize your custom config file.
 ## To do
 - [ ] Better way to use custom configs

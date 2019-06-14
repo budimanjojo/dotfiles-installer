@@ -76,6 +76,11 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Termite SSH error workaround
+if [[ "$TERM" == "xterm-termite" ]]; then
+    export TERM=xterm-256color
+fi
+
 # Only check compinit's cache once a day
 autoload -Uz compinit
 autoload -Uz compinit
