@@ -49,6 +49,7 @@ git clone https://github.com/budimanjojo/dotfiles-installer.git ~/.dotfiles-inst
 This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and add these plugins:
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
 - [Zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for the fish like autosuggestions
+- [Zsh-autosuggestions](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
 
 **Vim**  
 This script will install [Vim-plug](https://github.com/junegunn/vim-plug) and add these plugins:
@@ -85,7 +86,7 @@ Coc nvim will have these extensions inside:
 For Gnome Terminal setup, we use [Base16-gnome-terminal](https://github.com/chriskempson/base16-gnome-terminal) to set it up.
 ## Updating
 **Zsh**  
-Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions and Powerlevel10k, simply do a git pull to each folder in `$ZSH_CUSTOM/plugins` and `$ZSH_CUSTOM/themes`.
+Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions, Zsh-syntax-highlighting and Powerlevel10k, simply do a git pull to each folder in `$ZSH_CUSTOM/plugins` and `$ZSH_CUSTOM/themes`.
 
 **Vim**  
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script will install and configure ZSH, NEOVIM and Terminal colorscheme for you
-# For Zsh, this script will add Powerlevel10k and Zsh-autosuggestions
+# For Zsh, this script will add Powerlevel10k, Zsh-syntax-highlighting and Zsh-autosuggestions
 # For Vim, this script will add Vim-easy-align, Vim-colorschemes, Base16-vim, Vim-airline, Nerdtree, Tcomment, Vim-fugitive, Emmet-vim, Ale, Coc.nvim,
 # Vim-snippets, Fzf
 # For Coc nvim, this script will add coc.json, coc-snippets, coc-pairs, coc-highlight, coc-tsserver, coc-tslint, coc-html, coc-css, coc-phpls, coc-stylelint,
@@ -190,10 +190,17 @@ setup_zsh() {
             exit 1
         }
     fi
-   ZSH_CUSTOM="${ZSH_CUSTOM:-"$HOME/.oh-my-zsh/custom"}"
+    ZSH_CUSTOM="${ZSH_CUSTOM:-"$HOME/.oh-my-zsh/custom"}"
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+        log "Installing Zsh-syntax-highlighting"
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" || {
+            error "Git clone of zsh-syntax-highlighting repo failed, check your connection or try again later."
+            exit 1
+        }
+    fi
     if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
         log "Installing Zsh-autosuggestions"
-        git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" || {
+        git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions" || {
             error "Git clone of zsh-autosuggestions repo failed, check your connection or try again later."
             exit 1
         }
