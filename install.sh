@@ -290,7 +290,16 @@ setup_xr() {
             error "Xrdb is not installed. Please install xrdb first."
             exit 1
         fi
-        ln -sf "$source_dir/Xresources" "$HOME/.Xresources-base16"
+        if command_exists rofi; then
+            ln -sf "$source_dir/Xresources-rofi" "$HOME/.Xresources-rofi"
+            line='#include ".Xresources-rofi"'
+            if grep -Fxq "$line" "$HOME/.Xresources"; then
+                log "Already have included Rofi Xresources file, skipping"
+            else
+                echo "$line" >> "$HOME/.Xresources"
+            fi
+        fi
+        ln -sf "$source_dir/Xresources-base16" "$HOME/.Xresources-base16"
         line='#include ".Xresources-base16"'
         if grep -Fxq "$line" "$HOME/.Xresources"; then
             log "Already have included Base16 Xresources file, skipping"

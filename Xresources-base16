@@ -49,7 +49,6 @@
 *color20:      base04
 *color21:      base06
 
-
 ! For URxvt
 URxvt.foreground:   base05
 URxvt.background:   base00
@@ -72,12 +71,3 @@ URxvt.color12:      base0D
 URxvt.color13:      base0E
 URxvt.color14:      base0C
 URxvt.color15:      base07
-
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #212121, #000000, #4caf50
-rofi.color-normal: #212121, #808080, #212121, #4caf50, #ffffff
-rofi.color-active: #212121, #808080, #212121, #4caf50, #ffffff
-rofi.color-urgent: #4caf50, #808080, #4caf50, #4caf50, #ffffff
