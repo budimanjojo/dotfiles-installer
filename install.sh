@@ -271,7 +271,7 @@ setup_vim() {
     if [ -d "$yarn_dir" ]; then
         backup_file $yarn_dir
     fi
-    # curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+    curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
     log "Linking new .vimrc file"
     if command_exists nvim; then
         log "Linking new .nvimrc file"

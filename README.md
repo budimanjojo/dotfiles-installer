@@ -49,7 +49,7 @@ git clone https://github.com/budimanjojo/dotfiles-installer.git ~/.dotfiles-inst
 This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and add these plugins:
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
 - [Zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for the fish like autosuggestions
-- [Zsh-autosuggestions](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
+- [Zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
 
 **Vim**  
 This script will install [Vim-plug](https://github.com/junegunn/vim-plug) and add these plugins:
