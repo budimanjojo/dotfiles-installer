@@ -68,7 +68,7 @@ This script will install [Vim-plug](https://github.com/junegunn/vim-plug) and ad
 - [Vim-snippets](https://github.com/honza/vim-snippets)
 - [Fzf.vim](https://github.com/junegunn/fzf.vim)
 
-Coc nvim will have these extensions inside:
+Coc.nvim will have these extensions inside:
 - [coc-json](https://github.com/neoclide/coc-json)
 - [coc-snippets](https://github.com/neoclide/coc-snippets)
 - [coc-pairs](https://github.com/neoclide/coc-pairs)
@@ -81,6 +81,7 @@ Coc nvim will have these extensions inside:
 - [coc-stylelint](https://github.com/neoclide/coc-stylelint)
 - [coc-vimlsp](https://github.com/iamcco/coc-vimlsp)
 - [coc-yaml](https://github.com/neoclide/coc-yaml)
+**Note:** You need Vim version >=8.0 or Neovim version >=0.3.1 in order to use Coc.nvim
 
 **Colorscheme**  
 For Gnome Terminal setup, we use [Base16-gnome-terminal](https://github.com/chriskempson/base16-gnome-terminal) to set it up.

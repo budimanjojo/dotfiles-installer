@@ -129,7 +129,11 @@ ask() {
 }
 
 command_exists() {
-    command -v "$@" >/dev/null 2>&1
+    command -v "$@" | grep -qv alias
+}
+
+version_greater() {
+    echo $1 $2 | tr " " "\n" | sort -V | tail -1
 }
 
 backup_file() {
@@ -242,11 +246,13 @@ setup_vim() {
         old_vimrc="$HOME/.vimrc"
     fi
     if command_exists nvim; then
-        if [ ! -z "$XDG_CONFIG_HOME" ]; then
-            old_nvimrc="$XDG_CONFIG_HOME/nvim/init.vim"
-        else
+        set +u
+        if [ -z "$XDG_CONFIG_HOME" ]; then
             old_nvimrc="$HOME/.config/nvim/init.vim"
+        else
+            old_nvimrc="$XDG_CONFIG_HOME/nvim/init.vim"
         fi
+        set -u
     fi
     if [ -f "$old_vimrc" ]; then
         backup_file $old_vimrc
@@ -280,7 +286,21 @@ setup_vim() {
     ln -s "$source_dir/vimrc" "$old_vimrc"
     log "Installing Plugins"
     vim +PlugInstall +qall
+    vim_version=$(vim --version | head -1 | grep -o '[0-9]\.[0-9]')
+    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]\.[0-9]')
     log "Installing COC vim"
+    if command_exists vim; then
+        req_version=8.0
+        if [ $(version_greater $req_version $vim_version) != "$vim_version" ]; then
+            error "Your Vim version is $vim_version, you need to install Vim version $req_version to be able to use COC.nvim"
+        fi
+    fi
+    if command_exists nvim; then
+        req_version=0.3.1
+        if [ $(version_greater $req_version $nvim_version) != "$nvim_version" ]; then
+            error "Your Neovim version is $nvim_version, you need to install Neovim version $req_version to be able to use COC.nvim"
+        fi
+    fi
     vim -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
 }
 
