@@ -81,6 +81,7 @@ Coc.nvim will have these extensions inside:
 - [coc-stylelint](https://github.com/neoclide/coc-stylelint)
 - [coc-vimlsp](https://github.com/iamcco/coc-vimlsp)
 - [coc-yaml](https://github.com/neoclide/coc-yaml)
+
 **Note:** You need Vim version >=8.0 or Neovim version >=0.3.1 in order to use Coc.nvim
 
 **Colorscheme**  
