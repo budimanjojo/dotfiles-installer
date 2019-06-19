@@ -1,3 +1,6 @@
+# You can override your zshrc here instead of editing the file manually
+# General Oh-my-zsh settings are here
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -49,9 +52,3 @@ export VISUAL=vim
 if type nvim > /dev/null 2>&1; then
     alias vim='nvim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
