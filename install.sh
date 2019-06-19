@@ -230,6 +230,16 @@ setup_zsh() {
     fi
     log "Linking new .zshrc file"
     ln -sf "$source_dir/zshrc" "$old_zshrc"
+    cust_dir="$source_dir/zsh/custom"
+    cust_files=("$cust_dir/general.zsh" "$cust_dir/alias.zsh" "$cust_dir/plugs.zsh" "$cust_dir/looks.zsh")
+    for custom in "${cust_files[@]}"; do
+        if [ ! -f "$custom" ]; then
+            cp "$custom" "$ZSH_CUSTOM"
+            log "$custom copied"
+        else 
+            log "$custom already exists, skipping"
+        fi
+    done
     change_shell
 }
 

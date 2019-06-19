@@ -1,4 +1,4 @@
-# dotfiles-installer
+les-installer
 This repository contains my install script to configure my dotfiles. So I can just run the install script in my computer and I should get the unified looks in my terminals across machines. Please note that this is just my own personal dotfiles. You can use your own zshrc and vimrc by replacing yours with mine and run the install script.
 In the future, maybe I will make this customizable for custom changes, but that's when I'm free and not guaranteed. I may not even look at this README again after setting up all my machines.
 ## Screenshots
@@ -94,10 +94,19 @@ Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-auto
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.
 
 ## Customization
-To customize your Zshrc, put your custom zsh file inside `$ZSH_CUSTOM` folder. For example, your custom alias in `~/.oh-my-zsh/custom/alias.zsh`.
+**ZSH**
+
+In normal oh-my-zsh install, you can customize your `~/.zshrc` and your `$ZSH_CUSTOM` folder, but this install script needs to make small changes for FZF and COC Vim to work. So, please don't edit your ~/.zshrc manually, but edit the files inside `$ZSH_CUSTOM` instead. This install script will put in 4 files for you to customize:
+- `$ZSH_CUSTOM/general.zsh` contains your own general settings for oh-my-zsh
+- `$ZSH_CUSTOM/alias.zsh` contains your own aliases for oh-my-zsh
+- `$ZSH_CUSTOM/looks.zsh` contains oh-my-zsh theme and its settings
+- `$ZSH_CUSTOM/plugs.zsh` contains oh-my-zsh plugins and its settings
+
+**Vim**
+
 For Vimrc, currently it is not possible to customize without forking this repo yet. But it is in our planning list to provide a better way to customize your custom config file.
 ## To do
 - [ ] Better way to use custom configs
 - [ ] Use separate files instead of one vimrc
-- [ ] Better way to handle custom Powerlevel9k settings
+- [x] Better way to handle custom Powerlevel9k settings
 - [ ] Include Tmux config
