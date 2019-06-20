@@ -13,6 +13,14 @@ plugins=(
     zsh-autosuggestions
 )
 
+for plugin ($plugins); do
+  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  fi
+done
+
 # Fix for vi-mode keys not working
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
