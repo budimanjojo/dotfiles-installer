@@ -1,4 +1,4 @@
-##dotfiles-installer
+## dotfiles-installer
 This repository contains my install script to configure my dotfiles. So I can just run the install script in my computer and I should get the unified looks in my terminals across machines. Please note that this is just my own personal dotfiles. You can fork this repository and use your own zshrc and vimrc by replacing yours with mine and run the install script.
 In the future, maybe I will make this customizable for custom changes, but that's when I'm free and not guaranteed. I may not even look at this README again after setting up all my machines.
 ## Screenshots
