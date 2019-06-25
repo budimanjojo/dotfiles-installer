@@ -13,6 +13,7 @@ set -u
 
 install_zsh=
 install_vim=
+install_tmux=
 install_xr=
 source_dir="$(dirname $(readlink -f $0))"
 
@@ -43,6 +44,7 @@ usage: $0 [OPTIONS]
     --help                  Show this message
     --vim                   Include Vimrc with its plugins
     --zsh                   Include Zshrc with its plugins
+    --tmux                  Include Tmux config file
     --color                 Include colorscheme for terminals
     --all                   Include all without asking
 EOF
@@ -72,6 +74,9 @@ EOF
     if [ ! -z "$summary_vim" ]; then
         echo "              ${BOLD}Your Vim setup is done. Enjoy it!"
     fi
+    if [ ! -z "$summary_tmux" ]; then
+        echo "${BOLD}Your Tmux setup is done. Type tmux in your terminal and enjoy it!"
+    fi
     if [ ! -z "$summary_xr" ]; then
         echo "  ${BOLD}You have successfully configured your terminal colorschemes."
         echo "             ${BOLD}Restart you terminal and try it out!"
@@ -91,12 +96,16 @@ for opt in "$@"; do
         --zsh)
             install_zsh=1
             ;;
+        --tmux)
+            install_tmux=1
+            ;;
         --color)
             install_xr=1
             ;;
         --all)
             install_vim=1
             install_zsh=1
+            install_tmux=1
             install_xr=1
             ;;
         *)
@@ -243,6 +252,19 @@ setup_zsh() {
     change_shell
 }
 
+setup_tmux() {
+    if ! command_exists tmux; then
+        error "Tmux is not installed. Please install Tmux first."
+        exit 1
+    fi
+    old_tmuxrc="$HOME/.tmux.conf"
+    if [ -f "$old_tmuxrc" ]; then
+        backup_file $old_tmuxrc
+    fi
+    log "Linking new .tmux.conf file"
+    ln -sf "$source_dir/tmux.conf" "$old_tmuxrc"
+}
+
 setup_vim() {
     if ! command_exists vim nvim; then
         error "Vim or Neovim is not installed. Please install Vim or Neovim first."
@@ -369,6 +391,11 @@ if [ -z "$install_vim" ]; then
     install_vim=$?
 fi
 
+if [ -z "$install_tmux" ]; then
+    ask "Do you want to setup Tmux?"
+    install_tmux=$?
+fi
+
 if [ -z "$install_xr" ]; then
     ask "Do you want to setup terminal colors?"
     install_xr=$?
@@ -386,6 +413,12 @@ if [ "$install_vim" -eq 1 ]; then
     log "Setting up Vim or Neovim..."
     setup_vim
     summary_vim=1
+fi
+
+if [ "$install_tmux" -eq 1 ]; then
+    log "Setting up Tmux..."
+    setup_tmux
+    summary_tmux=1
 fi
 
 # Setup Xresources
