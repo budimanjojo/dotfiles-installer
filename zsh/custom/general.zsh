@@ -49,6 +49,3 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Preferred editor
 export EDITOR=vim
 export VISUAL=vim
-if type nvim > /dev/null 2>&1; then
-    alias vim='nvim'
-fi
