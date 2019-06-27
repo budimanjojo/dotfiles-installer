@@ -13,6 +13,7 @@ This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
 - [Zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for the fish like autosuggestions
 - [Zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
+
 This script will also set up your shell colorschemes to `base16-google-dark` using [base16-shell](https://github.com/chriskempson/base16-shell)
 
 **Vim**  
@@ -235,6 +236,7 @@ In normal oh-my-zsh install, you can customize your `~/.zshrc` and your `$ZSH_CU
 - `$ZSH_CUSTOM/alias.zsh` contains your own aliases for oh-my-zsh
 - `$ZSH_CUSTOM/looks.zsh` contains oh-my-zsh theme and its settings
 - `$ZSH_CUSTOM/plugs.zsh` contains oh-my-zsh plugins and its settings
+
 To change the included `base16-google-dark` colorscheme, you can type `base16` followed by a tab to perform tab completion.
 
 **Vim**
