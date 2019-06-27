@@ -14,7 +14,6 @@ set -u
 install_zsh=
 install_vim=
 install_tmux=
-install_xr=
 source_dir="$(dirname $(readlink -f $0))"
 
 colorme() {
@@ -77,10 +76,6 @@ EOF
     if [ ! -z "$summary_tmux" ]; then
         echo "${BOLD}Your Tmux setup is done. Type tmux in your terminal and enjoy it!"
     fi
-    if [ ! -z "$summary_xr" ]; then
-        echo "  ${BOLD}You have successfully configured your terminal colorschemes."
-        echo "             ${BOLD}Restart you terminal and try it out!"
-    fi
     printf "$RESET"
 }
 
@@ -98,9 +93,6 @@ for opt in "$@"; do
             ;;
         --tmux)
             install_tmux=1
-            ;;
-        --color)
-            install_xr=1
             ;;
         --all)
             install_vim=1
@@ -230,10 +222,10 @@ setup_zsh() {
         error "Ag is not installed. Please install ag first"
         exit 1
     fi
-    if [ ! -d "$HOME/.fzf"] && [ ! -f "$HOME/.fzf.zsh" ]; then
+    if [ ! -d "$HOME/.fzf" ] && [ ! -f "$HOME/.fzf.zsh" ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf" || {
-        error "Git clone of fzf repo failed, check your connection or try again later."
-        exit 1
+            error "Git clone of fzf repo failed, check your connection or try again later."
+            exit 1
         }
         "$HOME/.fzf/install -all"
     fi
@@ -250,6 +242,17 @@ setup_zsh() {
         fi
     done
     change_shell
+    log "Setting up colorschemes"
+    if [ ! -d "$HOME/.config/base16-shell" ]; then
+        git clone https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell" || {
+            error "Git clone of base16-shell repo failed, check your connection or try again later."
+            exit 1
+        }
+        zsh && base16_google-dark
+    else
+        log "You already have base16-shell in your system. We will set up your colorscheme to base16-google-dark"
+        zsh && base16_google-dark
+    fi
 }
 
 setup_tmux() {
@@ -336,51 +339,6 @@ setup_vim() {
     vim -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
 }
 
-setup_xr() {
-    if [ -f $HOME/.Xresources ]; then
-        if ! command_exists xrdb; then
-            error "Xrdb is not installed. Please install xrdb first."
-            exit 1
-        fi
-        if command_exists rofi; then
-            ln -sf "$source_dir/Xresources-rofi" "$HOME/.Xresources-rofi"
-            line='#include ".Xresources-rofi"'
-            if grep -Fxq "$line" "$HOME/.Xresources"; then
-                log "Already have included Rofi Xresources file, skipping"
-            else
-                echo "$line" >> "$HOME/.Xresources"
-            fi
-        fi
-        ln -sf "$source_dir/Xresources-base16" "$HOME/.Xresources-base16"
-        line='#include ".Xresources-base16"'
-        if grep -Fxq "$line" "$HOME/.Xresources"; then
-            log "Already have included Base16 Xresources file, skipping"
-        else
-            echo "$line" >> "$HOME/.Xresources"
-        fi
-        xrdb -merge "$HOME/.Xresources-base16"
-        log "Base16 Google Dark colorscheme is now loaded for URXVT or XTERM."
-    else
-        error "You don't have .Xresources file in $HOME. Skipping Xresources colorscheme setup."
-    fi
-    if command_exists gnome-terminal; then
-        log "Setting up Gnome Terminal color scheme."
-        if ! command_exists git; then
-            error "Git is not installed. Please install git first."
-            exit 1
-        fi
-        git clone https://github.com/aaron-williamson/base16-gnome-terminal.git "$HOME/base16-gnome-terminal" && "$HOME/base16-gnome-terminal/color-scripts/base16-google-dark-256.sh" || {
-            error "Git clone of base16-gnome-terminal repo failed, check your connection or try again later."
-            exit 1
-        }
-        log "Gnome terminal colorscheme installed, in your Gnome terminal Preferences, select Base16 Google Dark as the default profile."
-        log "Cleaning up unused dir..."
-        rm -rf "$HOME/base16-gnome-terminal"
-    else
-        error "You don't have Gnome terminal installed. Skipping Gnome terminal colorscheme setup."
-    fi
-}
-
 if [ -z "$install_zsh" ]; then
     ask "Do you want to install Oh-My-Zsh with its plugins?"
     install_zsh=$?
@@ -394,11 +352,6 @@ fi
 if [ -z "$install_tmux" ]; then
     ask "Do you want to setup Tmux?"
     install_tmux=$?
-fi
-
-if [ -z "$install_xr" ]; then
-    ask "Do you want to setup terminal colors?"
-    install_xr=$?
 fi
 
 # Setup oh-my-zsh
@@ -419,13 +372,6 @@ if [ "$install_tmux" -eq 1 ]; then
     log "Setting up Tmux..."
     setup_tmux
     summary_tmux=1
-fi
-
-# Setup Xresources
-if [ "$install_xr" -eq 1 ]; then
-    log "Setting up Colorscheme..."
-    setup_xr
-    summary_xr=1
 fi
 
 success

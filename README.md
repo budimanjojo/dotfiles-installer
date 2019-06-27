@@ -13,6 +13,7 @@ This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
 - [Zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for the fish like autosuggestions
 - [Zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
+This script will also set up your shell colorschemes to `base16-google-dark` using [base16-shell](https://github.com/chriskempson/base16-shell)
 
 **Vim**  
 This script will install [Vim-plug](https://github.com/junegunn/vim-plug) and add these plugins:
@@ -50,8 +51,6 @@ Coc.nvim will have these extensions inside:
 **Tmux**  
 This script will add a Tmux config for you. The main feature of our Tmux config is the unified colorscheme with our Zsh and Vim. Also, our preferred prefix key is `Alt+a` instead of the default `Ctrl+b` (Of cource you can change it, read more in [Customization](#customization))
 
-**Colorscheme**  
-For Gnome Terminal setup, we use [Base16-gnome-terminal](https://github.com/chriskempson/base16-gnome-terminal) to set it up.
 ## Dependencies
 You need to have these packages installed in your system if you want to set up:
 **For Zsh:**
@@ -71,22 +70,16 @@ nodejs
 **For Tmux:**  
 `tmux`
 
-**For Terminal colorscheme:**
-```
-gnome-terminal/urxvt/xterm (Choose one or all of them)
-xrdb (for URxvt/Xterm)
-git (for Gnome terminal)
-```
 ## Fonts
 Powerlevel10K and Vim-airline requires powerline fonts to work. We suggest [Nerd-fonts](https://github.com/ryanoasis/nerd-fonts) because that is what we are using. The font in the screenshot above is using UbuntuMono Nerd Font Regular.
 ## Installation
 Install list of packages needed depending on what you want to setup, if you want to install everything, then this is the command you need:
 
 **Arch Linux and Derivatives**  
-`sudo pacman -S zsh neovim rxvt-unicode gnome-terminal git nodejs the_silver_searcher curl tmux`
+`sudo pacman -S zsh neovim git nodejs the_silver_searcher curl tmux`
 
 **Ubuntu and Derivatives**  
-`sudo apt install zsh neovim rxvt-unicode-256color gnome-terminal git nodejs silversearcher-ag curl tmux`
+`sudo apt install zsh neovim git nodejs silversearcher-ag curl tmux`
 
 After that, simply git clone this repository and run the install script. It will ask you what do you want to install. If you want to install everything without confirmation, pass the `--all` argument in the command like this:
 ```
@@ -242,6 +235,7 @@ In normal oh-my-zsh install, you can customize your `~/.zshrc` and your `$ZSH_CU
 - `$ZSH_CUSTOM/alias.zsh` contains your own aliases for oh-my-zsh
 - `$ZSH_CUSTOM/looks.zsh` contains oh-my-zsh theme and its settings
 - `$ZSH_CUSTOM/plugs.zsh` contains oh-my-zsh plugins and its settings
+To change the included `base16-google-dark` colorscheme, you can type `base16` followed by a tab to perform tab completion.
 
 **Vim**
 
