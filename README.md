@@ -2,11 +2,15 @@
 This repository contains my install script to configure my dotfiles. So I can just run the install script in my computer and I should get the unified looks in my terminals across machines. Please note that this is just my own personal dotfiles. You can fork this repository and use your own zshrc and vimrc by replacing yours with mine and run the install script.
 In the future, maybe I will make this customizable for custom changes, but that's when I'm free and not guaranteed. I may not even look at this README again after setting up all my machines.
 ## Screenshots
+Tmux
+![render1561745632013](https://user-images.githubusercontent.com/13085918/60362720-d7f53580-9a0b-11e9-9876-79d6d18c998b.gif)
+
 Zsh prompt
 ![screenshot-2019-06-12_01-05-09](https://user-images.githubusercontent.com/13085918/59295937-0acec800-8caf-11e9-94ed-c88c5703e963.png)
+
 Vim
 ![screenshot-2019-06-12_01-07-25](https://user-images.githubusercontent.com/13085918/59295949-0dc9b880-8caf-11e9-8617-e4310db78f84.png)
-I use Base16-Google-Dark for everything. So you will have the same looks in your Zsh and Vim (You also need to install the Base16-Google-Dark colorscheme for your terminal too if you're not using Gnome-terminal/URxvt/Xterm)
+
 ## What Are Included
 **Zsh**  
 This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and add these plugins:
