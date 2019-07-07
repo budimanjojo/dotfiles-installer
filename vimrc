@@ -45,6 +45,7 @@ set foldmethod=marker                                    " Fold code by markers 
 set modelines=0                                          " Turn off modelines (security reason)
 set number                                               " Show line numbers
 set relativenumber                                       " Relative line numbers
+set cursorline                                           " Highlight current line
 set list                                                 " Display whitespace characters
 set listchars=tab:..,trail:_,extends:>,precedes:<,nbsp:~ " Format for whitespace characters
 set novisualbell                                         " Use visual bell instead of beeping when doing something wrong
@@ -74,6 +75,13 @@ set showmatch                                            " Show matching bracket
 set splitbelow                                           " Open new splits below by default
 set splitright                                           " Open new vertical split on the right by default
 set formatoptions-=cro                                   " Don't wrap my comments, I'll do it myself
+
+" Use persistent history
+if !isdirectory("/tmp/.vim-undo-dir")
+  call mkdir("/tmp/.vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/.vim-undo-dir
+set undofile
 
 " Eye Candy
 set background=dark                                      " Background to be dark
