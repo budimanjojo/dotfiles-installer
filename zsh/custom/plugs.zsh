@@ -1,6 +1,9 @@
 # You can override your zshrc here instead of editing the file manually
 # Tweak your zsh plugins and their settings here
 
+# Tmux plugin settings
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -11,6 +14,7 @@ plugins=(
     history-substring-search
     zsh-syntax-highlighting
     zsh-autosuggestions
+    tmux
 )
 
 for plugin ($plugins); do
