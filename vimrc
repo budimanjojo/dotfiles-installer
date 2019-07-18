@@ -14,7 +14,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                              " Git Integratio
 Plug 'tomtom/tcomment_vim'                                      " Comment out line with gcc or gc to target a motion
 Plug 'tpope/vim-fugitive'                                       " Git wrapper for vim
 Plug 'w0rp/ale'                                                 " Linting (syntax checking and semantic errors)
-Plug 'mattn/emmet-vim'                                          " Emmet for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " Intellisense engine for vim8 & neovim
 Plug 'honza/vim-snippets'                                       " Snippets collections
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " Fuzzy finder for zsh
@@ -131,6 +130,7 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-vimlsp',
   \ 'coc-yaml',
+  \ 'coc-emmet',
   \]
 " PLUGINS SETTINGS END HERE
 " }}}
