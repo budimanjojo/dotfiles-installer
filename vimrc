@@ -247,6 +247,9 @@ inoremap <silent><expr> <S-Tab>
   \ <SID>check_back_space() ? "\<S-Tab>" :
   \ coc#refresh()
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Press Enter to select completion items or expand snippets
 inoremap <silent><expr> <CR>
   \ pumvisible() ? "\<C-y>" :
