@@ -32,7 +32,6 @@ This script will install [Vim-plug](https://github.com/junegunn/vim-plug) and ad
 - [Tcomment](https://github.com/tomtom/tcomment_vim)
 - [Vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [Ale](https://github.com/w0rp/ale)
-- [Emmet-vim](https://github.com/mattn/emmet-vim)
 - [Coc.nvim](https://github.com/neoclide/coc.nvim)
 - [Vim-snippets](https://github.com/honza/vim-snippets)
 - [Fzf.vim](https://github.com/junegunn/fzf.vim)
@@ -50,6 +49,7 @@ Coc.nvim will have these extensions inside:
 - [coc-stylelint](https://github.com/neoclide/coc-stylelint)
 - [coc-vimlsp](https://github.com/iamcco/coc-vimlsp)
 - [coc-yaml](https://github.com/neoclide/coc-yaml)
+- [coc-emmet](https://github.com/neoclide/coc-emmet)
 
 **Note:** You need Vim version >=8.0 or Neovim version >=0.3.1 in order to use Coc.nvim
 
