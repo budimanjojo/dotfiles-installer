@@ -1,5 +1,13 @@
 " VIM PLUG SETTINGS START HERE {{{
 set nocompatible                                               " Disable vi compability mode, must be on top
+
+" Automatic installation for vim-plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -145,6 +153,7 @@ nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>qa :qa!<CR>
+nnoremap <Leader>wq :wq<CR>
 
 " Better cursor movement on wrapped line
 nnoremap k gk
