@@ -304,7 +304,7 @@ setup_vim() {
         error "Curl is not installed. Please install curl first."
         exit 1
     fi
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
         error "Failed to download and install vim-plug, check your connection or try again later."
         exit 1
     }

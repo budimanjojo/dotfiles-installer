@@ -223,9 +223,9 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " PLUGIN MAPPINGS START HERE {{{
 " EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xmap <silent> ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nmap <silent> ga <Plug>(EasyAlign)
 
 " NERDTree
 " Control + n to toggle NERDTree
@@ -296,7 +296,12 @@ let g:coc_snippet_prev = '<M-p>'
 
 " FZF
 " Leader+f to fuzzy file search
-nnoremap <Leader>f :FZF<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>fw :Windows<CR>
+nnoremap <silent> <Leader>fl :BLines<CR>
+nnoremap <silent> <Leader>fh :History<CR>
+
 " PLUGIN MAPPINGS END HERE
 " }}}
 
