@@ -236,10 +236,6 @@ map <C-n> :NERDTreeToggle<CR>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
-" Emmet
-" Use Alt+e to trigger Emmet
-let g:user_emmet_leader_key = '<M-e>'
-
 " COC
 " Press Tab and Shift+Tab and navigate around completion selections
 function! s:check_back_space() abort
@@ -289,9 +285,9 @@ nmap <Leader>cr <Plug>(coc-rename)
 nmap <Leader>cl <Plug>(coc-openlink)
 
 " COC Snippets
-" Use Tab to jump to next snippet placeholder
+" Use Alt+n to jump to next snippet placeholder
 let g:coc_snippet_next = '<M-n>'
-" Use Shift+Tab to jump to previous snippet placeholder
+" Use Alt+p to jump to previous snippet placeholder
 let g:coc_snippet_prev = '<M-p>'
 
 " FZF
@@ -350,3 +346,8 @@ augroup FZF
 augroup END
 " AUTOCOMMANDS END HERE
 " }}}
+
+" Use local vimrc if available
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

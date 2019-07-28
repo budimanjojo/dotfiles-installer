@@ -98,9 +98,281 @@ Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-auto
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.
 
 ## Cheatsheet
+**Vim**
+
+The prefix key is `Space`. You can override this using your custom `.vimrc.local` file. `<Leader>` means you need to press prefix key first. If they are not in the table, that means it is using the default Vim keybindings.
+
+<table>
+    <tr>
+        <td nowrap><b>Mode</b></td>
+        <td nowrap><b>Vim Keypress</b></td>
+        <td><b>Description</b></td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; w</code></td>
+        <td>Save file</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; x</code></td>
+        <td>Save file and quit vim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; q</code></td>
+        <td>Quit vim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; qa</code></td>
+        <td>Force quit vim without saving file</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; wq</code></td>
+        <td>Save file and quit vim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>Y</code></td>
+        <td>Yank from cursor to the end of file</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>ii</code></td>
+        <td>Exit Insert mode</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>K</code></td>
+        <td>Move Up one paragraph</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>J</code></td>
+        <td>Move Down one paragraph</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>H</code></td>
+        <td>Move to the first character in line</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>L</code></td>
+        <td>Move to the last character in line</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>Control+k</code></td>
+        <td>Move to the split window above</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>Control+j</code></td>
+        <td>Move to the split window below</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>Control+h</code></td>
+        <td>Move to the left split window</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>Control+l</code></td>
+        <td>Move to the right split window</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; s</code></td>
+        <td>Open new horizontal split window</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; v</code></td>
+        <td>Open new vertical split window</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Control+k</code></td>
+        <td>Move cursor Up</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Control+j</code></td>
+        <td>Move cursor Down</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Control+h</code></td>
+        <td>Move cursor Left</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Control+l</code></td>
+        <td>Move cursor Right</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; tn</code></td>
+        <td>Open new tab</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; td</code></td>
+        <td>Close tab</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; th</code></td>
+        <td>Go to previous tab</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; tl</code></td>
+        <td>Go to next tab</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; te</code></td>
+        <td>Open new tab with current buffer's path</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal/Visual</td>
+        <td nowrap><code>Tab</code></td>
+        <td>Indent current line or selection</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal/Visual</td>
+        <td nowrap><code>Shift+Tab</code></td>
+        <td>De-indent current line or selection</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; h</code></td>
+        <td>Toggle search highlight on/off</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>F5</code></td>
+        <td>Strip whitespaces in file</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal/Visual</td>
+        <td nowrap><code>ga</code></td>
+        <td>Align text with EasyAlign</td>
+    </tr>
+    <tr>
+        <td nowrap>All</td>
+        <td nowrap><code>Control+n</code></td>
+        <td>Toggle NERDTree File Manager</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; k</code></td>
+        <td>Go to previous syntax error with ALE</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; j</code></td>
+        <td>Go to next syntax error with ALE</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; ci</code></td>
+        <td>Show diagnostic message using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jn</code></td>
+        <td>Jump to next diagnostic position using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jp</code></td>
+        <td>Jump to previous diagnostic position using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jd</code></td>
+        <td>Jump to definition using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jc</code></td>
+        <td>Jump to declaration using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; ji</code></td>
+        <td>Jump to implementation using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jt</code></td>
+        <td>Jump to type definition using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; jr</code></td>
+        <td>Jump to reference using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal/Visual</td>
+        <td nowrap><code>&lt;leader&gt; cf</code></td>
+        <td>Format range of word of selection using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; cr</code></td>
+        <td>Rename symbol using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; cl</code></td>
+        <td>Open current link using COC.nvim</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Alt+n</code></td>
+        <td>Jump to next snippet placeholder using COC Snippets</td>
+    </tr>
+    <tr>
+        <td nowrap>Insert</td>
+        <td nowrap><code>Alt+p</code></td>
+        <td>Jump to previous snippet placeholder using COC Snippets</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; ff</code></td>
+        <td>Fuzzy file search using FZF</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; fb</code></td>
+        <td>Fuzzy buffer search using FZF</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; fw</code></td>
+        <td>Fuzzy window search using FZF</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; fl</code></td>
+        <td>Fuzzy line search using FZF</td>
+    </tr>
+    <tr>
+        <td nowrap>Normal</td>
+        <td nowrap><code>&lt;leader&gt; fh</code></td>
+        <td>Fuzzy history search using FZF</td>
+    </tr>
+</table>
+
 **Tmux**
 
-We have override the default keybindings for Tmux to be more reasonable. Prefix key is `Alt+a` for local session and `Alt+z` for nested session. You can of course override this using your custom .tmux.conf.local file. `<prefix>` means you need to press prefix key first, `<repeat>` means you don't need to press prefix key again after triggering it within `repeat-time` set (default set to 1 second), `<copy-mode>` means you must be in copy-mode first. The table below lists all the keybindings set. If they are not in the table, that means it is using the default Tmux keybindings.
+We have override the default keybindings for Tmux to be more reasonable. Prefix key is `Alt+a` for local session and `Alt+z` for nested session. You can of course override this using your custom `.tmux.conf.local` file. `<prefix>` means you need to press prefix key first, `<repeat>` means you don't need to press prefix key again after triggering it within `repeat-time` set (default set to 1 second), `<copy-mode>` means you must be in copy-mode first. The table below lists all the keybindings set. If they are not in the table, that means it is using the default Tmux keybindings.
 
 <table>
     <tr>
@@ -245,7 +517,7 @@ To change the included `base16-google-dark` colorscheme, you can type `base16` f
 
 **Vim**
 
-For Vimrc, currently it is not possible to customize without forking this repo yet. But it is in our planning list to provide a better way to customize your custom config file.
+You can create a new file in your `$HOME` folder call `.vimrc.local` and put in what you want to override in that file.
 
 **Tmux**
 
