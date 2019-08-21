@@ -53,3 +53,9 @@ else
     export EDITOR=vim
 fi
 export VISUAL="$EDITOR"
+
+# Termite SSH error workaround
+if [[ "$TERM" == "xterm-termite" ]]; then
+    export TERM=xterm-256color
+fi
+

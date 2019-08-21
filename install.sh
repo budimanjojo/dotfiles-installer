@@ -184,39 +184,19 @@ setup_zsh() {
     if [ -f "$old_zshrc" ]; then
         backup_file $old_zshrc
     fi
-    log "Installing Oh-my-zsh"
+    log "Installing antigen with it's plugins"
     if ! command_exists git; then
         error "Git is not installed. Please install git first."
         exit 1
     fi
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        git clone --depth=1 --branch master https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh" || {
+    if [ ! -d "$HOME/.antigen" ]; then
+        git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen" || {
             error "Git clone of oh-my-zsh repo failed, check your connection or try again later."
             exit 1
         }
     fi
-    ZSH_CUSTOM="${ZSH_CUSTOM:-"$HOME/.oh-my-zsh/custom"}"
-    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-        log "Installing Zsh-syntax-highlighting"
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" || {
-            error "Git clone of zsh-syntax-highlighting repo failed, check your connection or try again later."
-            exit 1
-        }
-    fi
-    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-        log "Installing Zsh-autosuggestions"
-        git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions" || {
-            error "Git clone of zsh-autosuggestions repo failed, check your connection or try again later."
-            exit 1
-        }
-    fi
-    if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-        log "Installing Powerlevel10k"
-        git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k" || {
-            error "Git clone of zsh-autosuggestions repo failed, check your connection or try again later."
-            exit 1
-        }
-    fi
+    log "Linking new .zshrc file"
+    ln -sf "$source_dir/zshrc" "$old_zshrc"
     log "Installing FZF"
     if ! command_exists ag; then
         error "Ag is not installed. Please install ag first"
@@ -229,16 +209,17 @@ setup_zsh() {
         }
         "$HOME/.fzf/install -all"
     fi
-    log "Linking new .zshrc file"
-    ln -sf "$source_dir/zshrc" "$old_zshrc"
-    cust_dir="$source_dir/zsh/custom"
+    cust_dir="$HOME/.zsh"
     cust_files=("general.zsh" "alias.zsh" "plugs.zsh" "looks.zsh")
+    if [ ! -d "$cust_dir" ]; then
+        mkdir -p "$cust_dir"
+    fi
     for custom in "${cust_files[@]}"; do
-        if [ ! -f "$ZSH_CUSTOM/$custom" ]; then
-            cp "$cust_dir/$custom" "$ZSH_CUSTOM"
-            log "$custom copied to $ZSH_CUSTOM/$custom"
+        if [ ! -f "$cust_dir/$custom" ]; then
+            cp "$cust_dir/$custom" "$cust_dir"
+            log "$custom copied to $cust_dir/$custom"
         else 
-            log "$ZSH_CUSTOM/$custom already exists, skipping"
+            log "$cust_dir/$custom already exists, skipping"
         fi
     done
     change_shell
@@ -340,7 +321,7 @@ setup_vim() {
 }
 
 if [ -z "$install_zsh" ]; then
-    ask "Do you want to install Oh-My-Zsh with its plugins?"
+    ask "Do you want to install antigen with its plugins?"
     install_zsh=$?
 fi
 

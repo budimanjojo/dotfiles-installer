@@ -13,10 +13,14 @@ Vim
 
 ## What Are Included
 **Zsh**  
-This script will install [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and add these plugins:
+This script will install [antigen](https://github.com/zsh-users/antigen) and add these plugins:
+- [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) as the default framework
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
+- [Vi-mode](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/vi-mode) for vi like mode in zsh
 - [Zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) for the fish like autosuggestions
 - [Zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) for the fish like syntax highlighting
+- [Zsh-history-substring-search](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/history-substring-search) to fix history up down issue with vi-mode
+- [Tmux](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/tmux) for tmux autostart
 
 This script will also set up your shell colorschemes to `base16-google-dark` using [base16-shell](https://github.com/chriskempson/base16-shell)
 
@@ -92,7 +96,7 @@ git clone https://github.com/budimanjojo/dotfiles-installer.git ~/.dotfiles-inst
 ```
 ## Updating
 **Zsh**  
-Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions, Zsh-syntax-highlighting and Powerlevel10k, simply do a git pull to each folder in `$ZSH_CUSTOM/plugins` and `$ZSH_CUSTOM/themes`.
+Oh-my-zsh will ask you for update confirmation every 13 days. To update Zsh-autosuggestions, Zsh-syntax-highlighting and Powerlevel10k, simply type in `antigen update` in terminal. To update antigen, type in `antigen selfupdate` in terminal.
 
 **Vim**  
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.
@@ -507,11 +511,17 @@ We have override the default keybindings for Tmux to be more reasonable. Prefix 
 ## Customization
 **ZSH**
 
+To customize your zsh, you can create these files in your `$HOME` directory:
+- `.zshrc.before` to add stuffs you want to load before your plugins. For example, to autostart tmux you can add `ZSH-TMUX_AUTOSTART=true` in this file
+- `.zshrc.local` to add in your own custom stuffs
+- `.zshrc.bundles` to add your own antigen compatible plugins
+This script will also add in these files in `$HOME/.zsh` folder:
+
 In normal oh-my-zsh install, you can customize your `~/.zshrc` and your `$ZSH_CUSTOM` folder, but this install script needs to make small changes for FZF and COC Vim to work. So, please don't edit your ~/.zshrc manually, but edit the files inside `$ZSH_CUSTOM` instead. This install script will put in 4 files for you to customize:
-- `$ZSH_CUSTOM/general.zsh` contains your own general settings for oh-my-zsh
-- `$ZSH_CUSTOM/alias.zsh` contains your own aliases for oh-my-zsh
-- `$ZSH_CUSTOM/looks.zsh` contains oh-my-zsh theme and its settings
-- `$ZSH_CUSTOM/plugs.zsh` contains oh-my-zsh plugins and its settings
+- `general.zsh` contains your own general settings for oh-my-zsh
+- `alias.zsh` contains your own aliases
+- `looks.zsh` contains the customization options for Powerlevel10k theme
+- `plugs.zsh` contains settings for plugins
 
 To change the included `base16-google-dark` colorscheme, you can type `base16` followed by a tab to perform tab completion.
 

@@ -1,30 +1,6 @@
 # You can override your zshrc here instead of editing the file manually
 # Tweak your zsh plugins and their settings here
 
-# Tmux plugin settings
-ZSH_TMUX_AUTOSTART=true
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    vi-mode
-    history-substring-search
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    tmux
-)
-
-for plugin ($plugins); do
-  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
-  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-  fi
-done
-
 # Fix for vi-mode keys not working
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo

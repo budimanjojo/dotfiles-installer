@@ -1,9 +1,6 @@
 # You can override your zshrc here instead of editing the file manually
 # Tweak your look and feel for zsh here
 
-# Theme for oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # Powerlevel10k Configs
 # Basic Configs
 POWERLEVEL9K_MODE="nerdfont-complete"
