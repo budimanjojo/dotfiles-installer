@@ -47,5 +47,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # export LANG=en_US.UTF-8
 
 # Preferred editor
-export EDITOR=vim
-export VISUAL=vim
+if type nvim > /dev/null 2>&1; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+export VISUAL="$EDITOR"
