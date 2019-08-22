@@ -209,17 +209,18 @@ setup_zsh() {
         }
         "$HOME/.fzf/install -all"
     fi
-    cust_dir="$HOME/.zsh"
+    cust_dir="$source_dir/zsh/custom"
     cust_files=("general.zsh" "alias.zsh" "plugs.zsh" "looks.zsh")
-    if [ ! -d "$cust_dir" ]; then
-        mkdir -p "$cust_dir"
+    config_dir="$HOME/.zsh"
+    if [ ! -d "$config_dir" ]; then
+        mkdir -p "$config_dir"
     fi
     for custom in "${cust_files[@]}"; do
-        if [ ! -f "$cust_dir/$custom" ]; then
-            cp "$cust_dir/$custom" "$cust_dir"
-            log "$custom copied to $cust_dir/$custom"
+        if [ ! -f "$config_dir/$custom" ]; then
+            ln -sf "$cust_dir/$custom" "$config_dir"
+            log "$custom linked to $config_dir/$custom"
         else 
-            log "$cust_dir/$custom already exists, skipping"
+            log "$config_dir/$custom already exists, skipping"
         fi
     done
     change_shell
@@ -335,7 +336,7 @@ if [ -z "$install_tmux" ]; then
     install_tmux=$?
 fi
 
-# Setup oh-my-zsh
+# Setup antigen
 if [ "$install_zsh" -eq 1 ]; then
     log "Setting up Zsh..."
     setup_zsh
