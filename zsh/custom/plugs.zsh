@@ -61,3 +61,9 @@ export FZF_DEFAULT_OPTS="--height 40% --reverse --select-1 --exit-0 \
 # FZF Alt+C Options to include preview of current directory tree
 # Needed tree to work, uncomment if you don't want to install tree
 export FZF_ALT_C_OPTS="--height 40% --reverse --preview 'tree -C {} | head -21'"
+
+# FZF use Tmux pane instead when in tmux session
+if [ -z "$TMUX" ]; then
+    export FZF_TMUX=1
+    export FZF_TMUX_HEIGHT=1
+fi
