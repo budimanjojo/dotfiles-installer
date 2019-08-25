@@ -15,7 +15,7 @@ alias rmrf="rm -rf"
 
 # Edit configuration files
 editvim() {"$EDITOR" "$HOME/.vimrc"}
-editnvim() {"$EDITOR" "$HOME/"}
+editnvim() {"$EDITOR" "$HOME/.config/nvim/init.vim"}
 editzsh() {"$EDITOR" "$HOME/.zshrc"}
 editbash() {"$EDITOR" "$HOME/.bashrc"}
 editalias() {"$EDITOR" "$ZSH_CUSTOM/alias.zsh"}
