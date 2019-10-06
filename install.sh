@@ -202,8 +202,8 @@ setup_zsh() {
     fi
     for custom in "${cust_files[@]}"; do
         if [ ! -f "$config_dir/$custom" ]; then
-            ln -sf "$cust_dir/$custom" "$config_dir"
-            log "$custom linked to $config_dir/$custom"
+            cp "$cust_dir/$custom" "$config_dir"
+            log "$custom copied to $config_dir/$custom"
         else 
             log "$config_dir/$custom already exists, skipping"
         fi
@@ -215,10 +215,16 @@ setup_zsh() {
             error "Git clone of base16-shell repo failed, check your connection or try again later."
             exit 1
         }
-        zsh && base16_google-dark
+        BASE16_SHELL="$HOME/.config/base16-shell/"
+        [ -n "$PS1" ] && \
+            [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+                eval "$("$BASE16_SHELL/profile_helper.sh")" && base16_google-dark
     else
         log "You already have base16-shell in your system. We will set up your colorscheme to base16-google-dark"
-        zsh && base16_google-dark
+        BASE16_SHELL="$HOME/.config/base16-shell/"
+        [ -n "$PS1" ] && \
+            [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+                eval "$("$BASE16_SHELL/profile_helper.sh")" && base16_google-dark
     fi
 }
 
