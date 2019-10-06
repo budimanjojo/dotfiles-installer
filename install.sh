@@ -184,30 +184,15 @@ setup_zsh() {
     if [ -f "$old_zshrc" ]; then
         backup_file $old_zshrc
     fi
-    log "Installing antigen with it's plugins"
-    if ! command_exists git; then
-        error "Git is not installed. Please install git first."
-        exit 1
-    fi
-    if [ ! -d "$HOME/.antigen" ]; then
-        git clone https://github.com/zsh-users/antigen.git "$HOME/.antigen" || {
-            error "Git clone of oh-my-zsh repo failed, check your connection or try again later."
-            exit 1
-        }
-    fi
     log "Linking new .zshrc file"
     ln -sf "$source_dir/zshrc" "$old_zshrc"
-    log "Installing FZF"
-    if ! command_exists ag; then
-        error "Ag is not installed. Please install ag first"
-        exit 1
-    fi
-    if [ ! -d "$HOME/.fzf" ] && [ ! -f "$HOME/.fzf.zsh" ]; then
-        git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf" || {
-            error "Git clone of fzf repo failed, check your connection or try again later."
+    log "Installing Zplugin"
+    if [ ! -d "$HOME/.zplugin/bin" ]; then
+        if ! command_exists curl; then
+            error "Curl is not installed. Please install curl first."
             exit 1
-        }
-        "$HOME/.fzf/install -all"
+        fi
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
     fi
     cust_dir="$source_dir/zsh/custom"
     cust_files=("general.zsh" "alias.zsh" "plugs.zsh" "looks.zsh")
@@ -322,7 +307,7 @@ setup_vim() {
 }
 
 if [ -z "$install_zsh" ]; then
-    ask "Do you want to install antigen with its plugins?"
+    ask "Do you want to install zsh with its plugins?"
     install_zsh=$?
 fi
 
@@ -336,7 +321,7 @@ if [ -z "$install_tmux" ]; then
     install_tmux=$?
 fi
 
-# Setup antigen
+# Setup zsh
 if [ "$install_zsh" -eq 1 ]; then
     log "Setting up Zsh..."
     setup_zsh

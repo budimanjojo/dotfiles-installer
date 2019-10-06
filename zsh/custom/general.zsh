@@ -2,7 +2,7 @@
 # General Oh-my-zsh settings are here
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -58,4 +58,3 @@ export VISUAL="$EDITOR"
 if [[ "$TERM" == "xterm-termite" ]]; then
     export TERM=xterm-256color
 fi
-

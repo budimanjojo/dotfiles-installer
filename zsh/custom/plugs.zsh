@@ -46,8 +46,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=red"
 
 # FZF Default and Ctrl+t Command to use ag instead of find, also enable finding hidden files
 # Need to install ag in order for this to work, uncomment to use default command if you don't want to use ag
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+if command -v ag | grep -qv alias; then
+    export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+    export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+fi
 
 # FZF Default Options, enable preview window
 # Needed one of the highlight, coderay, rougify to use syntax highlighting features, will use cat if you don't have them installed
