@@ -256,9 +256,11 @@ setup_vim() {
     if command_exists nvim; then
         set +u
         if [ -z "$XDG_CONFIG_HOME" ]; then
-            old_nvimrc="$HOME/.config/nvim/init.vim"
+            nvimdir="$HOME/.config/nvim"
+            old_nvimrc="$nvimdir/init.vim"
         else
-            old_nvimrc="$XDG_CONFIG_HOME/nvim/init.vim"
+            nvimdir="$XDG_CONFIG_HOME/nvim"
+            old_nvimrc="$nvimdir/init.vim"
         fi
         set -u
     fi
@@ -289,7 +291,7 @@ setup_vim() {
     log "Linking new .vimrc file"
     if command_exists nvim; then
         log "Linking new .nvimrc file"
-        ln -sf "$source_dir/nvim/init.vim" "$old_nvimrc"
+        mkdir -p "$nvimdir" && ln -sf "$source_dir/nvim/init.vim" "$old_nvimrc"
     fi
     ln -s "$source_dir/vimrc" "$old_vimrc"
     log "Installing Plugins"
