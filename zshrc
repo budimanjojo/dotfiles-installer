@@ -10,7 +10,7 @@ if [ -e "$HOME/.zshrc.before" ]; then
 fi
 
 ## Added by Zplugin's installer
-source '/home/budiman/.zplugin/bin/zplugin.zsh'
+source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin installer's chunk
