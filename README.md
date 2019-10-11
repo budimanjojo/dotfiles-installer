@@ -88,10 +88,10 @@ Powerlevel10K and Vim-airline requires powerline fonts to work. We suggest [Nerd
 Install list of packages needed depending on what you want to setup, if you want to install everything, then this is the command you need:
 
 **Arch Linux and Derivatives**  
-`sudo pacman -S zsh neovim git nodejs the_silver_searcher curl tmux`
+`sudo pacman -S zsh neovim git nodejs the_silver_searcher curl tmux subversion`
 
 **Ubuntu and Derivatives**  
-`sudo apt install zsh neovim git nodejs silversearcher-ag curl tmux`
+`sudo apt install zsh neovim git nodejs silversearcher-ag curl tmux subversion`
 
 After that, simply git clone this repository and run the install script. It will ask you what do you want to install. If you want to install everything without confirmation, pass the `--all` argument in the command like this:
 ```
