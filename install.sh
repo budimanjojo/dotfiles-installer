@@ -311,6 +311,7 @@ setup_vim() {
             error "Your Neovim version is $nvim_version, you need to install Neovim version $req_version to be able to use COC.nvim"
         fi
     fi
+    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
     vim -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
 }
 
