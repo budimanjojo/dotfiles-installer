@@ -16,7 +16,7 @@ autoload -Uz _zplugin
 ### End of Zplugin installer's chunk
 
 # Load oh-my-zsh's library
-zplugin ice svn pick'/dev/null' multisrc'*.zsh'
+zplugin ice svn multisrc"*.zsh" as"null"
 zplugin snippet OMZ::lib
 
 # Plugins
@@ -42,7 +42,7 @@ zplugin light romkatv/powerlevel10k
 zplugin ice from"gh-r" as"program"
 zplugin light junegunn/fzf-bin
 
-zplugin ice svn pick"/dev/null" multisrc"{completion,key-bindings}.zsh"
+zplugin ice svn multisrc"{completion,key-bindings}.zsh" as"null"
 zplugin snippet "https://github.com/junegunn/fzf/trunk/shell"
 
 # Load custom plugins if exists
