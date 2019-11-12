@@ -24,7 +24,6 @@ Plug 'tpope/vim-fugitive'                                       " Git wrapper fo
 Plug 'w0rp/ale'                                                 " Linting (syntax checking and semantic errors)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " Intellisense engine for vim8 & neovim
 Plug 'honza/vim-snippets'                                       " Snippets collections
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " Fuzzy finder for zsh
 Plug 'junegunn/fzf.vim'                                         " Fuzzy finder for vim
 
 " Initialize plugin system
