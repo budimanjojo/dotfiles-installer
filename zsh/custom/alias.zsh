@@ -12,6 +12,7 @@ alias cpr="cp -r"
 alias cprf="cp -rf"
 alias rmr="rm -r"
 alias rmrf="rm -rf"
+alias sudo='sudo '
 
 # Edit configuration files
 editvim() {"$EDITOR" "$HOME/.vimrc"}
