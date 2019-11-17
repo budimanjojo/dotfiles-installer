@@ -250,9 +250,7 @@ setup_vim() {
         error "Nodejs is not installed. Please install Nodejs first."
         exit 1
     fi
-    if command_exists vim; then
-        old_vimrc="$HOME/.vimrc"
-    fi
+    old_vimrc="$HOME/.vimrc"
     if command_exists nvim; then
         set +u
         if [ -z "$XDG_CONFIG_HOME" ]; then
