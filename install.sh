@@ -204,7 +204,7 @@ setup_zsh() {
         if [ ! -f "$config_dir/$custom" ]; then
             cp "$cust_dir/$custom" "$config_dir"
             log "$custom copied to $config_dir/$custom"
-        else 
+        else
             log "$config_dir/$custom already exists, skipping"
         fi
     done
@@ -291,9 +291,14 @@ setup_vim() {
         log "Linking new .nvimrc file"
         mkdir -p "$nvimdir" && ln -sf "$source_dir/nvim/init.vim" "$old_nvimrc"
     fi
+    if command_exists vim; then
+        vimcommand="vim"
+    elif command_exists nvim; then
+        vimcommand="nvim"
+    fi
     ln -s "$source_dir/vimrc" "$old_vimrc"
     log "Installing Plugins"
-    vim +PlugInstall +qall
+    $vimcommand +PlugInstall +qall
     vim_version=$(vim --version | head -1 | grep -o '[0-9]\.[0-9]')
     nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]\.[0-9]')
     log "Installing COC vim"
@@ -310,7 +315,7 @@ setup_vim() {
         fi
     fi
     export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-    vim -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
+    $vimcommand -c ":silent :CocInstall -sync coc-json coc-snippets coc-pairs coc-highlight coc-tsserver coc-tslint coc-html coc-css coc-phpls coc-stylelint coc-vimlsp coc-yaml" -c ":qall"
 }
 
 if [ -z "$install_zsh" ]; then
