@@ -83,10 +83,10 @@ set splitright                                           " Open new vertical spl
 set formatoptions-=cro                                   " Don't wrap my comments, I'll do it myself
 
 " Use persistent history
-if !isdirectory("/tmp/.vim-undo-dir")
-  call mkdir("/tmp/.vim-undo-dir", "", 0700)
+if !isdirectory("/tmp/.vim-undo-dir-". $USER)
+  call mkdir("/tmp/.vim-undo-dir-". $USER, "", 0700)
 endif
-set undodir=/tmp/.vim-undo-dir
+set undodir=/tmp/.vim-undo-dir-$USER
 set undofile
 
 " Eye Candy
