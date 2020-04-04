@@ -33,3 +33,6 @@ editsudo() {sudo EDITOR="$EDITOR" visudo}
 alias cwtp='find ./ -name "*.webp" -exec dwebp {} -o {}.png \; && rm -r *.webp'
 alias cptj='mogrify -flatten -format jpg *.png && rm -r *.png'
 alias cjtp='find ./ -name "*.jpg" -exec convert {} {}.png \; && rm -r *.jpg'
+
+# Keep alias on sudo command
+alias sudo="sudo "
