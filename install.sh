@@ -186,13 +186,13 @@ setup_zsh() {
     fi
     log "Linking new .zshrc file"
     ln -sf "$source_dir/zshrc" "$old_zshrc"
-    log "Installing Zplugin"
-    if [ ! -d "$HOME/.zplugin/bin" ]; then
+    log "Installing Zinit"
+    if [ ! -d "$HOME/.zinit/bin" ]; then
         if ! command_exists curl; then
             error "Curl is not installed. Please install curl first."
             exit 1
         fi
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
     fi
     cust_dir="$source_dir/zsh/custom"
     cust_files=("general.zsh" "alias.zsh" "plugs.zsh" "looks.zsh")

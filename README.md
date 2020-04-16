@@ -13,7 +13,7 @@ Vim
 
 ## What Are Included
 **Zsh**  
-This script will install [zplugin](https://github.com/zsh-users/antigen) and add these plugins:
+This script will install [zinit](https://github.com/zdharma/zinit) and add these plugins:
 - [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) as the default framework
 - [Powerlevel10K](https://github.com/romkatv/powerlevel10k) as the theme
 - [Vi-mode](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/vi-mode) for vi like mode in zsh
@@ -99,7 +99,7 @@ git clone https://github.com/budimanjojo/dotfiles-installer.git ~/.dotfiles-inst
 ```
 ## Updating
 **Zsh**  
-To update Zsh plugins, simply type in `zplg update` in terminal. To update zplugin, type in `zplg self-update` in terminal.
+To update Zsh plugins, simply type in `zinit update` in terminal. To update zinit, type in `zinit self-update` in terminal.
 
 **Vim**  
 To update Vim plugins, simply do `:PlugUpdate` in your vim. For Coc extensions, you don't have to do anything. It will update by itself everyday.
@@ -517,7 +517,7 @@ We have override the default keybindings for Tmux to be more reasonable. Prefix 
 To customize your zsh, you can create these files in your `$HOME` directory:
 - `.zshrc.before` to add stuffs you want to load before your plugins. For example, to autostart tmux you can add `ZSH-TMUX_AUTOSTART=true` in this file
 - `.zshrc.local` to add in your own custom stuffs
-- `.zshrc.bundles` to add your own zplugin compatible plugins
+- `.zshrc.bundles` to add your own zinit compatible plugins
 This script will also add in these files in `$HOME/.zsh` folder:
 
 In normal oh-my-zsh install, you can customize your `~/.zshrc` and your `$ZSH_CUSTOM` folder, but this install script needs to make small changes for FZF and COC Vim to work. So, please don't edit your ~/.zshrc manually, but edit the files inside `~/.zsh` directory instead. This install script will put in 4 files for you to customize:

@@ -9,41 +9,41 @@ if [ -e "$HOME/.zshrc.before" ]; then
     source $HOME/.zshrc.before
 fi
 
-## Added by Zplugin's installer
-source $HOME/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+## Added by Zinit's installer
+source $HOME/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zplugin installer's chunk
 
 # Load oh-my-zsh's library
-zplugin ice svn multisrc"*.zsh" as"null"
-zplugin snippet OMZ::lib
+zinit ice svn multisrc"*.zsh" as"null"
+zinit snippet OMZ::lib
 
 # Plugins
-zplugin ice svn
-zplugin snippet OMZ::plugins/vi-mode
+zinit ice svn
+zinit snippet OMZ::plugins/vi-mode
 
-zplugin ice wait atinit"zpcompinit; zpcdreplay" lucid
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait atinit"zpcompinit; zpcdreplay" lucid
+zinit light zdharma/fast-syntax-highlighting
 
-zplugin ice svn
-zplugin snippet OMZ::plugins/history-substring-search
+zinit ice svn
+zinit snippet OMZ::plugins/history-substring-search
 
-zplugin ice wait atload"_zsh_autosuggest_start" lucid
-zplugin light zsh-users/zsh-autosuggestions
+zinit ice wait atload"_zsh_autosuggest_start" lucid
+zinit light zsh-users/zsh-autosuggestions
 
-zplugin ice svn
-zplugin snippet OMZ::plugins/tmux
+zinit ice svn
+zinit snippet OMZ::plugins/tmux
 
 # Theme
-zplugin light romkatv/powerlevel10k
+zinit light romkatv/powerlevel10k
 
 # Program
-zplugin ice from"gh-r" as"program"
-zplugin light junegunn/fzf-bin
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf-bin
 
-zplugin ice svn multisrc"{completion,key-bindings}.zsh" as"null"
-zplugin snippet "https://github.com/junegunn/fzf/trunk/shell"
+zinit ice svn multisrc"{completion,key-bindings}.zsh" as"null"
+zinit snippet "https://github.com/junegunn/fzf/trunk/shell"
 
 # Load custom plugins if exists
 if [ -e "$HOME/.zshrc.bundles" ]; then
@@ -68,3 +68,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+### End of Zinit's installer chunk
