@@ -289,7 +289,7 @@ setup_vim() {
     log "Linking new .vimrc file"
     if command_exists nvim; then
         log "Linking new .nvimrc file"
-        mkdir -p "$nvimdir" && ln -sf "$source_dir/nvim/init.vim" "$old_nvimrc"
+        mkdir -p "$nvimdir" && ln -sf "$source_dir/nvim/init.vim" "$old_nvimrc" && ln -sf "$source_dir/nvim/coc-settings.json" "$nvimdir/coc-settings.json"
     fi
     if command_exists vim; then
         vimcommand="vim"
