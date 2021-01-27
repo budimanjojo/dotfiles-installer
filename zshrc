@@ -35,6 +35,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice svn
 zinit snippet OMZ::plugins/tmux
 
+zinit ice svn
+zinit snippet OMZ::plugins/kubectl
+
 # Theme
 zinit light romkatv/powerlevel10k
 
