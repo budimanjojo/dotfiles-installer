@@ -323,8 +323,8 @@ augroup END
 augroup FileTypeSettings
   autocmd!
   autocmd FileType java,php,css,html,xml, setlocal noexpandtab
-  autocmd FileType vim setlocal shiftwidth=2
-  autocmd FileType vim setlocal tabstop=2
+  autocmd FileType vim,yaml setlocal shiftwidth=2
+  autocmd FileType vim,yaml setlocal tabstop=2
   autocmd FileType json syntax match Comment +\/\/.\+$+
   autocmd FileType html,css,php EmmetInstall
 augroup END
