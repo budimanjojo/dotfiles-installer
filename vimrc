@@ -25,6 +25,7 @@ Plug 'w0rp/ale'                                                 " Linting (synta
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " Intellisense engine for vim8 & neovim
 Plug 'honza/vim-snippets'                                       " Snippets collections
 Plug 'junegunn/fzf.vim'                                         " Fuzzy finder for vim
+Plug 'Yggdroot/indentLine'
 
 " Initialize plugin system
 call plug#end()
