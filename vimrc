@@ -1,4 +1,4 @@
-" VIM PLUG SETTINGS START HERE {{{
+" VIM PLUG SETTINGS START HERE
 set nocompatible                                               " Disable vi compability mode, must be on top
 
 " Automatic installation for vim-plug if not already installed
@@ -33,9 +33,8 @@ call plug#end()
 filetype plugin indent on                                      " Enable support for autocmds and plugins to work
 syntax enable                                                  " Enable syntax highlighting
 " VIM PLUG SETTINGS END HERE
-" }}}
 
-" VIM BASIC SETTINGS START HERE {{{
+" VIM BASIC SETTINGS START HERE
 " Neovim specific options
 if !has('nvim')
   set ttymouse=xterm2
@@ -104,9 +103,8 @@ set tabstop=4                                            " 1 tab is 4 spaces
 set autoindent                                           " Copy indentation from previous line when starting new line
 set smartindent                                          " Copy indentation from file being edited
 " VIM BASIC SETTINGS END HERE
-" }}}}
 
-" PLUGINS SETTINGS START HERE {{{
+" PLUGINS SETTINGS START HERE
 " Vim Airline
 let g:airline_theme = 'base16_google'         " Airline Theme
 let g:airline_powerline_fonts = 1             " Use Powerline fonts
@@ -140,9 +138,8 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \]
 " PLUGINS SETTINGS END HERE
-" }}}
 
-" BASIC MAPPINGS START HERE {{{
+" BASIC MAPPINGS START HERE
 "Leader is spacebar
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
@@ -217,9 +214,8 @@ nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."
 " Press F5 to strip whitespaces in file
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " BASIC MAPPINGS END HERE
-" }}}
 
-" PLUGIN MAPPINGS START HERE {{{
+" PLUGIN MAPPINGS START HERE
 " EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap <silent> ga <Plug>(EasyAlign)
@@ -298,9 +294,8 @@ nnoremap <silent> <Leader>fl :BLines<CR>
 nnoremap <silent> <Leader>fh :History<CR>
 
 " PLUGIN MAPPINGS END HERE
-" }}}
 
-" AUTOCOMMANDS START HERE {{{
+" AUTOCOMMANDS START HERE
 " Automatically re source vimrc when changes are done
 augroup AutoSource
   autocmd!
@@ -344,7 +339,6 @@ augroup FZF
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
 " AUTOCOMMANDS END HERE
-" }}}
 
 " Use local vimrc if available
 if filereadable(expand("~/.vimrc.local"))
