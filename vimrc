@@ -339,6 +339,16 @@ augroup FZF
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
+
+" Templates
+augroup K8S
+  autocmd!
+  autocmd BufNewFile deployment.yaml 0r ~/.vim/templates/deployment.yaml
+  autocmd BufNewFile service.yaml 0r ~/.vim/templates/service.yaml
+  autocmd BufNewFile pvc.yaml 0r ~/.vim/templates/pvc.yaml
+  autocmd BufNewFile configmap.yaml 0r ~/.vim/templates/configmap.yaml
+  autocmd BufNewFile secret.yaml 0r ~/.vim/templates/secret.yaml
+  autocmd BufNewFile ingress-traefikCRD.yaml 0r ~/.vim/templates/ingress-traefikCRD.yaml
 " AUTOCOMMANDS END HERE
 
 " Use local vimrc if available

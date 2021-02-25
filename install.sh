@@ -297,6 +297,7 @@ setup_vim() {
         vimcommand="nvim"
     fi
     ln -s "$source_dir/vimrc" "$old_vimrc"
+    ln -s "$source_dir/templates" "$old_vimdir/templates"
     log "Installing Plugins"
     $vimcommand +PlugInstall +qall
     vim_version=$(vim --version | head -1 | grep -o '[0-9]\.[0-9]')
