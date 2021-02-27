@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: 
@@ -21,6 +21,13 @@ spec:
       - name: 
         image: 
         imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 
+            memory: 
+          limits:
+            cpu: 
+            memory: 
         command:
         - null
         args:
