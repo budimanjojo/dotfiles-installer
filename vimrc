@@ -322,6 +322,7 @@ augroup FileTypeSettings
   autocmd FileType vim,yaml setlocal shiftwidth=2
   autocmd FileType vim,yaml setlocal tabstop=2
   autocmd FileType json syntax match Comment +\/\/.\+$+
+  autocmd FileType json let g:indentLine_setConceal=0
   autocmd FileType html,css,php EmmetInstall
 augroup END
 
