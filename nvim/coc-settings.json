@@ -13,5 +13,11 @@
             "crd.yaml"
         ],
         "https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json": ["docker-compose.yml"]
-    }
+    },
+    "yaml.customTags": [
+        "!include_dir_list",
+        "!include_dir_named",
+        "!include_dir_merge_list",
+        "!include_dir_merge_named"
+    ]
 }
