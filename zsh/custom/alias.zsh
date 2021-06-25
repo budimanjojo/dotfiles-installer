@@ -34,5 +34,6 @@ alias cwtp='find ./ -name "*.webp" -exec dwebp {} -o {}.png \; && rm -r *.webp'
 alias cptj='mogrify -flatten -format jpg *.png && rm -r *.png'
 alias cjtp='find ./ -name "*.jpg" -exec convert {} {}.png \; && rm -r *.jpg'
 
-# Keep alias on sudo command
+# Keep alias on common commands
 alias sudo="sudo "
+alias watch="watch "
