@@ -4,13 +4,16 @@
             "01-namespace.yaml",
             "deployment.yaml",
             "daemonset.yaml",
+            "statefulset.yaml",
             "service.yaml",
             "pv.yaml",
             "pvc.yaml",
             "configmap.yaml",
             "secret.yaml",
             "rbac.yaml",
-            "crd.yaml"
+            "crd.yaml",
+            "storageclass.yaml",
+            "cronjob.yaml"
         ],
         "https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json": ["docker-compose.yml"]
     },
