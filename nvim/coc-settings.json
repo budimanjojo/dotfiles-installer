@@ -1,4 +1,5 @@
 {
+    "diagnostic.checkCurrentLine": true,
     "yaml.schemas": {
         "kubernetes": [
             "01-namespace.yaml",
